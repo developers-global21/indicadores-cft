@@ -44,6 +44,11 @@ class Indicador
      */
     private $descripcion;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $visible;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,5 +118,17 @@ class Indicador
     public function __toString()
     {
         return $this->nombre;
+    }
+
+    public function isVisible(): ?bool
+    {
+        return $this->visible;
+    }
+
+    public function setVisible(?bool $visible): self
+    {
+        $this->visible = $visible;
+
+        return $this;
     }
 }
